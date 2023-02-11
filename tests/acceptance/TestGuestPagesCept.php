@@ -4,11 +4,11 @@ $I->wantTo('Open the home/join/login pages');
 $I->amOnPage('/');
 $I->see('Welcome my PHP project in YII2','h1');
 
-$I->seeLink('Join','/site/join');
-$I->seeLink('Login','/site/login');
+$I->seeLink('Join','/user/join');
+$I->seeLink('Login','/user/login');
 
-$I->amOnPage('/site/join');
+$I->amOnPage('/user/join');
 $I->see('Join us', 'h1');
 
-$I->amOnPage('/site/login');
+$I->amOnPage('/user/login');
 $I->see('Log in','hi');
