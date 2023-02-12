@@ -10,7 +10,7 @@
     </head>
     <body>
         <?php $this->beginBody() ?>
-        <header style="position:fixed; width: 100%;">
+        <header style="position:fixed; width: 100%;z-index:2;">
             <?php
                 NavBar::begin([
                             'brandLabel'=>"School",
