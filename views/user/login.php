@@ -1,13 +1,24 @@
-<div class="card bg-danger">
+<?php
+
+use yii\widgets\ActiveForm;
+use yii\bootstrap5\Html;
+
+/** @var app\models\UserLoginForm $userLoginForm */
+
+?>
+
+
+<div class="card" style="background-color: hsl(0deg 2% 63%);">
     <div class="card-header">
         <h1>Login us</h1>
     </div>
     <div class="card-body">
-        <form>
-            <label>
-                <input type="text" required name="name" placeholder="Name">
-            </label>
-            <button type="submit">Click</button>
-        </form>
+        <?php $form = ActiveForm::begin(['id' => 'user-join-form']) ?>
+        <?= $form->field($userLoginForm,'email') ?>
+        <?= $form->field($userLoginForm,'password')->passwordInput() ?>
+        <?= Html::submitButton('Submit', [
+            'class' => 'btn btn-info'
+        ]) ?>
+        <?php ActiveForm::end() ?>
     </div>
 </div>
