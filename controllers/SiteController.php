@@ -3,17 +3,15 @@
 namespace app\controllers;
 
 use JetBrains\PhpStorm\ArrayShape;
-use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
 use yii\web\Controller;
 
 class SiteController extends Controller {
 
-    public function actionIndex(){
+    public function actionIndex():string{
        return $this->render("index");
     }
 
-    public function actions()
+    #[ArrayShape(['error' => "string[]", 'captcha' => "array"])] public function actions():array
     {
         return [
             'error' => [

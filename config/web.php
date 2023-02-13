@@ -10,12 +10,12 @@ $db = require __DIR__ . '/db.php';
             'debug'
         ],
         'components' => [
-            'urlManager' => [
-                'enablePrettyUrl' => true,
-                'showScriptName' => false,
-                'rules' => [
-                ],
-            ],
+//            'urlManager' => [
+//                'enablePrettyUrl' => true,
+//                'showScriptName' => false,
+//                'rules' => [
+//                ],
+//            ],
             'request' => [
                 'cookieValidationKey' => 'my secret key'
             ],
