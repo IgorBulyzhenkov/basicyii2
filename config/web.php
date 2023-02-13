@@ -19,6 +19,10 @@ $db = require __DIR__ . '/db.php';
             'request' => [
                 'cookieValidationKey' => 'my secret key'
             ],
+            'user' => [
+                'identityClass' => 'app\models\UserIdentity',
+                'enableAutoLogin' => true,
+            ],
             'db' => $db,
         ],
         'params' => $params,
