@@ -20,10 +20,15 @@
                                     "style"=> 'border-bottom: 1px solid; background-color: hsl(34deg 78% 91%);'
                             ]
                     ]);
-                $menu = [
-                        ["label"=>'Join',"url"=>['/user/join']],
-                        ["label"=>"Login","url"=>['/user/login']]
-                ];
+                Yii::$app->user->isGuest ?
+                    $menu = [
+                            ["label"=>'Join',"url"=>['/user/join']],
+                            ["label"=>"Login","url"=>['/user/login']]
+                    ] :
+                    $menu = [
+                        ["label"=>Yii::$app->user->getIdentity()->name],
+                        ["label"=>"Logout","url"=>['/user/logout']]
+                    ];
                 echo Nav::widget([
                         'options'=>['class'=>'navbar-nav'],
                         'items'=>$menu,
