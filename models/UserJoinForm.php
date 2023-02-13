@@ -22,7 +22,17 @@ class UserJoinForm extends Model
             ['name','string','min'=>3,'max'=>30,'message'=>"Ім'я повинно бути від 3 до 30 символів"],
             ['email', 'email','message'=>'Почта вказана невірно'],
             ['password','string', 'min'=>8,'message'=>'Пароль повинен мати мінімум 8 символів' ],
-            ['password2', 'compare', 'compareAttribute'=>'password', 'message'=>'Паролі повинні співпадати']
+            ['password2', 'compare', 'compareAttribute'=>'password', 'message'=>'Паролі повинні співпадати'],
+            ['email', 'errorIfEmailUse']
         ];
+    }
+
+    public function errorIfEmailUse(){
+
+        $userEmail = UserRecord::findUserByEmail($this->email);
+
+        if(!$userEmail)  return;
+
+        $this->addError('email','Такий емейл вже використовуеться ');
     }
 }

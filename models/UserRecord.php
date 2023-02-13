@@ -22,4 +22,10 @@ class UserRecord extends ActiveRecord
         $this->status = 2;
     }
 
+    public static function findUserByEmail($email) :bool{
+        $count = static::find()->where(['email'=>$email])->count();
+
+        return $count > 0;
+    }
+
 }

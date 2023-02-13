@@ -10,7 +10,7 @@ use yii\bootstrap5\Html;
     <div class="card-header">
         <h1>Join us</h1>
     </div>
-    <div class="card-body" style="text-align: left;">
+    <div class="card-body form" style="text-align: left;">
         <?php $form = ActiveForm::begin(['id' => 'user-join-form']) ?>
         <?= $form->field($userJoinForm,'name') ?>
         <?= $form->field($userJoinForm,'email') ?>
