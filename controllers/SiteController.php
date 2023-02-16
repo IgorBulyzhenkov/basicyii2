@@ -2,12 +2,16 @@
 
 namespace app\controllers;
 
+use app\models\CarRecord;
 use JetBrains\PhpStorm\ArrayShape;
 use yii\web\Controller;
 
 class SiteController extends Controller {
 
     public function actionIndex():string{
+        $allCar = new CarRecord();
+       $car = $allCar->findAllCar();
+       echo json_encode($car);
        return $this->render("index");
     }
 

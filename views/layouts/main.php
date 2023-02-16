@@ -26,8 +26,9 @@
                             ["label"=>"Login","url"=>['/user/login']]
                     ] :
                     $menu = [
-                        ["label"=>Yii::$app->user->getIdentity()->name],
-                        ["label"=>"Logout","url"=>['/user/logout']]
+                        ["label" => 'Igor', 'url' => ['/user']],
+                        ["label" => "Logout","url"=>['/user/logout']],
+                        ['label' => 'Add car', 'url' => ['/user/add-car']]
                     ];
                 echo Nav::widget([
                         'options'=>['class'=>'navbar-nav'],

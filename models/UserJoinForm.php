@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use yii\base\Model;
 
 class UserJoinForm extends Model
@@ -29,10 +30,9 @@ class UserJoinForm extends Model
 
     public function errorIfEmailUse(){
 
-        $userEmail = UserRecord::findUserByEmail($this->email);
-
-        if(!$userEmail)  return;
-
-        $this->addError('email','Такий емейл вже використовуеться ');
+        $userEmail = UserRecord::findEmail($this->email);
+        if($userEmail)
+            $this->addError('email','Такий емейл вже використовуеться ');
     }
+
 }

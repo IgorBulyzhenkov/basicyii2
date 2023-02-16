@@ -13,7 +13,7 @@ use yii\bootstrap5\Html;
         <h1>Login us</h1>
     </div>
     <div class="card-body">
-        <?php $form = ActiveForm::begin(['id' => 'user-join-form']) ?>
+        <?php $form = ActiveForm::begin(['id' => 'user-login-form']) ?>
         <?= $form->field($userLoginForm,'email') ?>
         <?= $form->field($userLoginForm,'password')->passwordInput() ?>
         <?= Html::submitButton('Submit', [
