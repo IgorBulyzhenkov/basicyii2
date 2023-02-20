@@ -1,11 +1,12 @@
 
-<?php if(Yii::$app->session->hasFlash('success')) : ?>
-        <div class="alert alert-success alert-dismissible container-btn" role="alert">
-            <?= Yii::$app->session->getFlash('success') ?>
-            <button type="button" class="close close-custom" data-bs-dismiss="alert" aria-label="Close">
-                <span aria-hidden=true >&times;</span>
-            </button>
-        </div>
+<?php
+    if(Yii::$app->session->hasFlash('success')) : ?>
+    <div class="alert alert-success alert-dismissible container-btn" role="alert">
+        <?= Yii::$app->session->getFlash('success') ?>
+        <button type="button" class="close close-custom" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 
 <?php endif; ?>
 
@@ -31,7 +32,7 @@
                 $run = mb_strimwidth($car['run'],0,3);
             }
 
-            $deletePath = "/user/delete?id=$car[id]";
+            $deletePath = "/user/delete?id=$car[id]&nameImg=$car[img]";
 
 
             $img =  Yii::getAlias("@web")."/uploads/$car[img]";

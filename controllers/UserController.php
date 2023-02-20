@@ -128,7 +128,7 @@ class UserController extends Controller
     /**
      * @throws \yii\web\NotFoundHttpException
      */
-    public function actionDelete($id = null)
+    public function actionDelete($id = null, $nameImg = null)
     {
         if(Yii::$app->user->isGuest){
             return $this->redirect('/');
@@ -139,7 +139,8 @@ class UserController extends Controller
         if($oneCar === false) {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-            $model->delete();
+        unlink(Yii::$app->basePath.'\web\uploads\\'. $nameImg);
+        $model->delete();
         Yii::$app->session->setFlash('success', 'Зображення видаленно!');
         return $this->redirect('/user/');
     }
