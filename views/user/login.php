@@ -9,6 +9,16 @@ $this->title = "Login";
 
 ?>
 
+<?php if(Yii::$app->session->hasFlash('success')) : ?>
+    <div class="alert alert-success alert-dismissible container-btn" role="alert">
+        <?= Yii::$app->session->getFlash('success') ?>
+        <button type="button" class="close close-custom" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden=true >&times;</span>
+        </button>
+    </div>
+
+<?php endif; ?>
+
 
 <div class="card" style="background: #f0f2fa; width: 450px;text-align: left;">
     <div class="card-header">

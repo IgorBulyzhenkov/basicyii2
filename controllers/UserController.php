@@ -48,6 +48,7 @@ class UserController extends Controller
                 $userRecord = new UserRecord();
                 $userRecord->setUserSingUpForm($userSingUpForm);
                 $userRecord->save();
+                Yii::$app->session->setFlash('success', 'Ви успішно зареєструвалися! Увійдіть користуючись своїм емейлом і паролем');
                 return $this->redirect('/user/login');
             }
         }
@@ -61,6 +62,7 @@ class UserController extends Controller
         if($userLoginForm->load(Yii::$app->request->post()))
             if($userLoginForm->validate()) {
                 $userLoginForm->login();
+                Yii::$app->session->setFlash('success', 'Вітаємо '.Yii::$app->user->getIdentity()->name .' !');
                 return $this->redirect('/');
             }
         return $this->render('login', compact('userLoginForm'));
@@ -68,6 +70,7 @@ class UserController extends Controller
 
     public function actionLogout(): \yii\web\Response{
         Yii::$app->user->logout();
+        Yii::$app->session->setFlash('success', 'Ви успішно вийшли зі свого профілю!');
         return $this->redirect("/");
     }
 
@@ -137,7 +140,7 @@ class UserController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
             $model->delete();
-
+        Yii::$app->session->setFlash('success', 'Зображення видаленно!');
         return $this->redirect('/user/');
     }
 
@@ -149,7 +152,7 @@ class UserController extends Controller
             $model->file = UploadedFile::getInstance($model, 'file');
             $fileName = $model->upload();
             if ($fileName) {
-                Yii::$app->session->setFlash('success', 'Изображение загружено');
+                Yii::$app->session->setFlash('success', 'Зображення завантаженно!');
             }
             return $fileName;
         }

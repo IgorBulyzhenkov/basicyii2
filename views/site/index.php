@@ -1,3 +1,13 @@
+<?php if(Yii::$app->session->hasFlash('success')) : ?>
+    <div class="alert alert-success alert-dismissible container-btn" role="alert">
+        <?= Yii::$app->session->getFlash('success') ?>
+        <button type="button" class="close close-custom" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden=true >&times;</span>
+        </button>
+    </div>
+
+<?php endif; ?>
+
 <ul class="list">
     <?php
     /** @var app\models\UserLoginForm $cars*/

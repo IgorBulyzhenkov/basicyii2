@@ -92,3 +92,21 @@ a.desc:after {
     color:red;
     margin-bottom: 5px;
 }
+
+.container-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.close-custom{
+    border: none;
+    background-color: transparent;
+    display: flex;
+    color: #847e7e;
+    font-size: 25px;
+}
+
+.close-custom:hover{
+    color:black;
+}
