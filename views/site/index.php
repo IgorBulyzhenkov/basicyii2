@@ -5,7 +5,6 @@
             <span aria-hidden=true >&times;</span>
         </button>
     </div>
-
 <?php endif; ?>
 
 <ul class="list">
