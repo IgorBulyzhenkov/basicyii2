@@ -2,10 +2,9 @@
 
 namespace app\models;
 
-use Yii;
 use yii\base\Model;
 
-class UserJoinForm extends Model
+class UserSingUpForm extends Model
 {
     public string $name = '';
     public string $email = '';

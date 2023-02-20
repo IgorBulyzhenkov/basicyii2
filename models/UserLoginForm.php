@@ -9,12 +9,14 @@ class UserLoginForm extends Model
 {
     public string $email = '';
     public string $password = '';
+    public bool $remember = false;
 
     public function rules():array
     {
         return [
             ['email', 'required','message'=>'Треба заповнити поле'],
             ['password', 'required','message'=>'Треба заповнити поле'],
+            ['remember', 'boolean'],
             ['email', 'email','message'=>'Почта вказана невірно'],
             ['password','string', 'min'=>8,'message'=>'Пароль повинен мати мінімум 8 символів' ],
             ['email', 'errorIfEmailNotFound'],
@@ -48,6 +50,6 @@ class UserLoginForm extends Model
             return;
         $userRecord = UserRecord::findUser($this->email);
         $userIdentity = UserIdentity::findIdentity($userRecord['id']);
-        Yii::$app->user->login($userIdentity);
+        Yii::$app->user->login($userIdentity, $this->remember ? 300*24*30 : 0);
     }
 }

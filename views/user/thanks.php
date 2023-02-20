@@ -1,1 +1,0 @@
-<h1>Thanks for you registration</h1>

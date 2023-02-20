@@ -3,13 +3,10 @@
 namespace app\models;
 
 use Yii;
-use PhpParser\Node\Stmt\Switch_;
 use yii\db\ActiveRecord;
 
 class UserRecord extends ActiveRecord
 {
-
-    private int $salt = 10;
     /**
      * @var mixed|null
      */
@@ -47,7 +44,7 @@ class UserRecord extends ActiveRecord
             ->one();
     }
 
-    public function setUserJoinForm($userJoinForm)
+    public function setUserSingUpForm($userJoinForm)
     {
         $this->name = $userJoinForm->name;
         $this->email = $userJoinForm->email;
@@ -57,7 +54,7 @@ class UserRecord extends ActiveRecord
 
     public function setPasswordHash($password):string
     {
-        return Yii::$app->getSecurity()->generatePasswordHash($password,$this->salt);
+        return Yii::$app->getSecurity()->generatePasswordHash($password);
     }
 
     public static function validatePassword($password,$userPass):bool{
