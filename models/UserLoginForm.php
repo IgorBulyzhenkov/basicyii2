@@ -17,6 +17,7 @@ class UserLoginForm extends Model
             ['email', 'required','message'=>'Треба заповнити поле'],
             ['password', 'required','message'=>'Треба заповнити поле'],
             ['remember', 'boolean'],
+            [['email','password'],'trim'],
             ['email', 'email','message'=>'Почта вказана невірно'],
             ['password','string', 'min'=>8,'message'=>'Пароль повинен мати мінімум 8 символів' ],
             ['email', 'errorIfEmailNotFound'],

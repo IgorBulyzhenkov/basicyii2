@@ -19,6 +19,7 @@ class UserSingUpForm extends Model
             ['email', 'required','message'=>'Треба заповнити поле'],
             ['password', 'required','message'=>'Треба заповнити поле'],
             ['password2', 'required','message'=>'Треба заповнити поле'],
+            [['name','email','password','password2'],'trim'],
             ['name','string','min'=>3,'max'=>30,'message'=>"Ім'я повинно бути від 3 до 30 символів"],
             ['email', 'email','message'=>'Почта вказана невірно'],
             ['password','string', 'min'=>8,'message'=>'Пароль повинен мати мінімум 8 символів' ],

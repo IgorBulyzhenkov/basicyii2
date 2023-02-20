@@ -44,6 +44,7 @@ class UserAddCarForm extends Model
                 'tooBig' => 'Limit is 5000KB'
             ],
             ['price', 'required','message'=>'Треба заповнити поле'],
+            [['car_brand','car_model','run','price','city'],'trim']
         ];
     }
 
